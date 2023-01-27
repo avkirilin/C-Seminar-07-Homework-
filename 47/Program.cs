@@ -14,8 +14,8 @@ double[,] GetArray(int rows, int columns, int minValue, int maxValue)           
     return result;
 }
 
-void PrintArray(double[,] inArray)                                                         //метод вывода двумерного массива с корректными отступами
-{
+void PrintArray(double[,] inArray)                                                          //метод вывода двумерного массива с корректными отступами 
+{                                                                                           //и округлением значений до 3 знака после запятой
     Console.WriteLine();
     for (int i = 0; i < inArray.GetLength(0); i++)
     {

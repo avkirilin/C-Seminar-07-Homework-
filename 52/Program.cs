@@ -14,9 +14,9 @@ int[,] GetArray(int rows, int columns, int minValue, int maxValue)              
     return result;
 }
 
-double[] AverageInColumns(int[,] array)
-{
-    double[] result = new double[array.GetLength(0)];
+double[] AverageInColumns(int[,] array)                                                 //метод получения одномерного массива из заданного двумерного
+{                                                                                       //путем получения среднего арифметического значения из каждого     
+    double[] result = new double[array.GetLength(0)];                                   //столбца двумерного массива
     double averageSum;
     for (int j = 0; j < result.Length; j++)
     {
