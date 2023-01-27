@@ -48,11 +48,11 @@ void PrintArray(int[,] inArray)                                                 
 
 
 Console.WriteLine("Введите кол-во строк и кол-во столбцов массива через пробел");
-string[] f = Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries);
+string[] f = Console.ReadLine()!.Split(' ', StringSplitOptions.RemoveEmptyEntries);
 int rowsArray = int.Parse(f[0]);
 int columnsArray = int.Parse(f[1]);
 Console.WriteLine("Введите минимальное и максимальное значения элементов массива в диапазоне 0-9999, через пробел");
-string[] d = Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries);
+string[] d = Console.ReadLine()!.Split(' ', StringSplitOptions.RemoveEmptyEntries);
 int minNum = int.Parse(d[0]);
 int maxNum = int.Parse(d[1]);
 int[,] myArray = GetArray(rowsArray, columnsArray, minNum, maxNum);
