@@ -3,9 +3,9 @@
 int[,] GetArray(int rows, int columns, int minValue, int maxValue)                      //метод получения двумерного массива с рандомными значениями
 {
     int[,] result = new int[rows, columns];
-    for (int i = 0; i < columns; i++)
+    for (int i = 0; i < rows; i++)
     {
-        for (int j = 0; j < rows; j++)
+        for (int j = 0; j < columns; j++)
         {
             result[i, j] = new Random().Next(minValue, maxValue + 1);
         }
@@ -39,11 +39,11 @@ void PrintArray(int[,] inArray)                                                 
 
 
 Console.WriteLine("Введите кол-во строк и кол-во столбцов массива через пробел");
-string[] f = Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries);
+string[] f = Console.ReadLine()!.Split(' ', StringSplitOptions.RemoveEmptyEntries);
 int rowsArray = int.Parse(f[0]);
 int columnsArray = int.Parse(f[1]);
 Console.WriteLine("Введите минимальное и максимальное значения элементов массива в диапазоне 0-9999, через пробел");
-string[] d = Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries);
+string[] d = Console.ReadLine()!.Split(' ', StringSplitOptions.RemoveEmptyEntries);
 int minNum = int.Parse(d[0]);
 int maxNum = int.Parse(d[1]);
 Console.WriteLine("Введите порядковый номер искомого элемента в массиве");

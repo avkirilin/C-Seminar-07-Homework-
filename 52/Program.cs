@@ -4,9 +4,9 @@
 int[,] GetArray(int rows, int columns, int minValue, int maxValue)                      //метод получения двумерного массива с рандомными значениями
 {
     int[,] result = new int[rows, columns];
-    for (int i = 0; i < columns; i++)
+    for (int i = 0; i < rows; i++)
     {
-        for (int j = 0; j < rows; j++)
+        for (int j = 0; j < columns; j++)
         {
             result[i, j] = new Random().Next(minValue, maxValue + 1);
         }
@@ -14,17 +14,17 @@ int[,] GetArray(int rows, int columns, int minValue, int maxValue)              
     return result;
 }
 
-double[] AverageInColumns(int[,] array)                                                 //метод получения одномерного массива из заданного двумерного
+double[] AverageInColumns(int[,] array, int rows, int columns)                                                 //метод получения одномерного массива из заданного двумерного
 {                                                                                       //путем получения среднего арифметического значения из каждого     
-    double[] result = new double[array.GetLength(0)];                                   //столбца двумерного массива
+    double[] result = new double[columns];                                   //столбца двумерного массива
     double averageSum;
-    for (int j = 0; j < result.Length; j++)
+    for (int j = 0; j < columns; j++)
     {
         averageSum = 0;
-        for (int i = 0; i < array.GetLength(1); i++)
+        for (int i = 0; i < rows; i++)
         {
             averageSum += array[i, j];
-            result[j] = Math.Round((averageSum / array.GetLength(0)), 2);
+            result[j] = Math.Round((averageSum / rows), 2);
         }
     }
     return result;
@@ -33,9 +33,9 @@ double[] AverageInColumns(int[,] array)                                         
 void PrintArray(int[,] inArray)                                                         //метод вывода двумерного массива с корректными отступами
 {
     Console.WriteLine();
-    for (int i = 0; i < inArray.GetLength(1); i++)
+    for (int i = 0; i < inArray.GetLength(0); i++)
     {
-        for (int j = 0; j < inArray.GetLength(0); j++)
+        for (int j = 0; j < inArray.GetLength(1); j++)
         {
             if (inArray[i, j] >= 0 && inArray[i, j] < 10) Console.Write($"     {inArray[i, j]}");
             if (inArray[i, j] >= 10 && inArray[i, j] < 100) Console.Write($"    {inArray[i, j]}");
@@ -57,4 +57,5 @@ int minNum = int.Parse(d[0]);
 int maxNum = int.Parse(d[1]);
 int[,] myArray = GetArray(rowsArray, columnsArray, minNum, maxNum);
 PrintArray(myArray);
-Console.WriteLine($"Среднее арифметическое каждого столбца из массива: {String.Join("; ", AverageInColumns(myArray))}");
+Console.WriteLine();
+Console.WriteLine($"Среднее арифметическое каждого столбца из массива: {String.Join("; ", AverageInColumns(myArray, rowsArray, columnsArray))}");
